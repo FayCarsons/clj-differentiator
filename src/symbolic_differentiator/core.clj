@@ -1,15 +1,10 @@
 (ns symbolic-differentiator.core
   (:use clojure.test)
+  (:use clojure.pprint)
   (:require [clojure.string :as s]
             [clojure.test :as t]))
 
 (use 'symbolic-differentiator.core :reload)
-
-(defn log
-  "prints to repl and returns"
-  [v]
-  (println v)
-  v)
 
 ; determines whether factor, exponent, or both should be present 
 ; and converts to string
@@ -37,8 +32,8 @@
   "takes in monomial string and returns 2 element vector of factor + exponent, 
    or constant + 0"
   [monomial]
-  (if-let [contant (parse-long monomial)]
-    [contant 0]
+  (if-let [constant (parse-long monomial)]
+    [constant 0]
     (let [factor (if-let [num (get-factor monomial)]
                    (parse-long num)
                    1)
@@ -88,4 +83,3 @@
                (nth test-vec n)))))) 
 
   (run-tests 'symbolic-differentiator.core))
-
