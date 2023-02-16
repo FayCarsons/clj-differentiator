@@ -1,2 +1,2 @@
-Symbolic Differentiator, currently supporting only polynomials of one variable.
-TODO: add testing, support edgecases and more complex expresions.
+Symbolic Differentiator, only supports plynomials with one variable at the moment.
+TODO: remove constants more elegantly, add simplification, arbitrary varaible names
